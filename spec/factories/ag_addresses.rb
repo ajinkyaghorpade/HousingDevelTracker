@@ -3,8 +3,8 @@ FactoryGirl.define do
     project_name "MyString"
     street_name "MyString"
     city "MyString"
-    state 1
+    ag_state_id 1
     zip_code "MyString"
-    country 1
+    ag_country_id 1
   end
 end

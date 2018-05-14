@@ -5,11 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Moved</th>
+      <th>Moved in</th>
       <th>Moved out</th>
       <th>Cost</th>
-      <th>Apartment</th>
-      <th>Household</th>
+      <th>Ag apartment</th>
+      <th>Ag household</th>
+      <th>Ag public housing devel</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +18,12 @@
   <tbody>
     <% @ag_household_apartments.each do |ag_household_apartment| %>
       <tr>
-        <td><%= ag_household_apartment.moved_id %></td>
+        <td><%= ag_household_apartment.moved_in %></td>
         <td><%= ag_household_apartment.moved_out %></td>
         <td><%= ag_household_apartment.cost %></td>
-        <td><%= ag_household_apartment.apartment %></td>
-        <td><%= ag_household_apartment.household %></td>
+        <td><%= ag_household_apartment.ag_apartment %></td>
+        <td><%= ag_household_apartment.ag_household %></td>
+        <td><%= ag_household_apartment.ag_public_housing_devel %></td>
         <td><%= link_to 'Show', ag_household_apartment %></td>
         <td><%= link_to 'Edit', edit_ag_household_apartment_path(ag_household_apartment) %></td>
         <td><%= link_to 'Destroy', ag_household_apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -16,7 +16,7 @@
     <% @ag_states.each do |ag_state| %>
       <tr>
         <td><%= ag_state.name %></td>
-        <td><%= ag_state.country_id %></td>
+        <td><%= ag_state.ag_country_id %></td>
         <td><%= ag_state.iso %></td>
         <td><%= link_to 'Show', ag_state %></td>
         <td><%= link_to 'Edit', edit_ag_state_path(ag_state) %></td>

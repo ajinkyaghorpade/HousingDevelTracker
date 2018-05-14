@@ -18,10 +18,10 @@
     <% @ag_public_housing_devels.each do |ag_public_housing_devel| %>
       <tr>
         <td><%= ag_public_housing_devel.name %></td>
-        <td><%= ag_public_housing_devel.address %></td>
+        <td><%= ag_public_housing_devel.ag_address_id %></td>
         <td><%= ag_public_housing_devel.open_date %></td>
         <td><%= ag_public_housing_devel.height %></td>
-        <td><%= ag_public_housing_devel.last_rennov_date %></td>
+        <td><%= ag_public_housing_devel.last_renov_date %></td>
         <td><%= link_to 'Show', ag_public_housing_devel %></td>
         <td><%= link_to 'Edit', edit_ag_public_housing_devel_path(ag_public_housing_devel) %></td>
         <td><%= link_to 'Destroy', ag_public_housing_devel, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,5 +1,4 @@
 class Ag::PublicHousingDevel < ApplicationRecord
 
-  has_one :ag_address, class_name: 'Ag::Address'
-
+  has_one :ag_address
 end

@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :dob %>
-    <%= form.date_select :dob, id: :ag_resident_dob %>
+    <%= form.date_select :dob, id: :ag_resident_dob, start_year: (Date.today.year - 100) %>
   </div>
 
   <div class="field">

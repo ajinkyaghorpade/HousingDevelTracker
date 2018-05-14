@@ -15,8 +15,8 @@
   <tbody>
     <% @ag_household_members.each do |ag_household_member| %>
       <tr>
-        <td><%= ag_household_member.household_id %></td>
-        <td><%= ag_household_member.member_id %></td>
+        <td><%= ag_household_member.ag_household_id %></td>
+        <td><%= ag_household_member.ag_resident_id %></td>
         <td><%= ag_household_member.head %></td>
         <td><%= link_to 'Show', ag_household_member %></td>
         <td><%= link_to 'Edit', edit_ag_household_member_path(ag_household_member) %></td>

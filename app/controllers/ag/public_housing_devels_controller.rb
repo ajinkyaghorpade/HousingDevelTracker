@@ -69,6 +69,6 @@ class Ag::PublicHousingDevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ag_public_housing_devel_params
-      params.fetch(:ag_public_housing_devel, {})
+      params.fetch(:ag_public_housing_devel, {}).permit(:name, :ag_address_id, :open_date, :height, :last_renov_date )
     end
 end

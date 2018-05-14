@@ -69,6 +69,6 @@ class Ag::AddressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ag_address_params
-      params.require(:ag_address).permit(:project_name, :street_name, :city, :state, :zip_code, :country)
+      params.require(:ag_address).permit(:project_name, :street_name, :city, :ag_state_id, :zip_code, :ag_country_id)
     end
 end

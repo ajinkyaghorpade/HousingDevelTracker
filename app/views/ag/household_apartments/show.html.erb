@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Moved:</strong>
-  <%= @ag_household_apartment.moved_id %>
+  <strong>Moved in:</strong>
+  <%= @ag_household_apartment.moved_in %>
 </p>
 
 <p>
@@ -16,13 +16,18 @@
 </p>
 
 <p>
-  <strong>Apartment:</strong>
-  <%= @ag_household_apartment.apartment %>
+  <strong>Ag apartment:</strong>
+  <%= @ag_household_apartment.ag_apartment %>
 </p>
 
 <p>
-  <strong>Household:</strong>
-  <%= @ag_household_apartment.household %>
+  <strong>Ag household:</strong>
+  <%= @ag_household_apartment.ag_household %>
+</p>
+
+<p>
+  <strong>Ag public housing devel:</strong>
+  <%= @ag_household_apartment.ag_public_housing_devel %>
 </p>
 
 <%= link_to 'Edit', edit_ag_household_apartment_path(@ag_household_apartment) %> |

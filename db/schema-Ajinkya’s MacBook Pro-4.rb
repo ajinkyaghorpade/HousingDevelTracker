@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513234833) do
+ActiveRecord::Schema.define(version: 20180514140359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,20 +20,26 @@ ActiveRecord::Schema.define(version: 20180513234833) do
     t.string "project_name"
     t.string "street_name"
     t.string "city"
-    t.integer "ag_state_id"
     t.string "zip_code"
-    t.integer "ag_country_id"
+    t.bigint "ag_country_id"
+    t.bigint "ag_state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ag_country_id"], name: "index_ag_addresses_on_ag_country_id"
+    t.index ["ag_state_id"], name: "index_ag_addresses_on_ag_state_id"
   end
 
-  create_table "ag_app_use_type", id: false, force: :cascade do |t|
-    t.string "applicant", limit: 30
-    t.string "fname", limit: 20
-    t.string "new_fname", limit: 20
-    t.string "new_app", limit: 30
-    t.string "existuse", limit: 25
-    t.text "agroup"
+  create_table "ag_apartments", force: :cascade do |t|
+    t.integer "unit_num"
+    t.integer "num_bedrooms"
+    t.integer "num_bathrooms"
+    t.boolean "has_kitchen"
+    t.boolean "has_living_room"
+    t.float "sq_footage"
+    t.bigint "ag_public_housing_devel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ag_public_housing_devel_id"], name: "index_ag_apartments_on_ag_public_housing_devel_id"
   end
 
   create_table "ag_countries", force: :cascade do |t|
@@ -57,6 +63,37 @@ ActiveRecord::Schema.define(version: 20180513234833) do
     t.bigint "scount"
   end
 
+  create_table "ag_household_apartments", force: :cascade do |t|
+    t.date "moved_id"
+    t.date "moved_out"
+    t.float "cost"
+    t.bigint "ag_apartment_id"
+    t.bigint "ag_household_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "ag_public_housing_devels_id"
+    t.index ["ag_apartment_id"], name: "index_ag_household_apartments_on_ag_apartment_id"
+    t.index ["ag_household_id"], name: "index_ag_household_apartments_on_ag_household_id"
+    t.index ["ag_public_housing_devels_id"], name: "index_ag_household_apartments_on_ag_public_housing_devels_id"
+  end
+
+  create_table "ag_household_members", force: :cascade do |t|
+    t.boolean "head"
+    t.bigint "ag_household_id"
+    t.bigint "ag_resident_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ag_household_id"], name: "index_ag_household_members_on_ag_household_id"
+    t.index ["ag_resident_id"], name: "index_ag_household_members_on_ag_resident_id"
+  end
+
+  create_table "ag_households", force: :cascade do |t|
+    t.boolean "owned"
+    t.boolean "subsidized"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ag_own_lu_type", id: false, force: :cascade do |t|
     t.string "owner_fy05", limit: 45
     t.string "new_owner", limit: 45
@@ -66,16 +103,31 @@ ActiveRecord::Schema.define(version: 20180513234833) do
   end
 
   create_table "ag_public_housing_devels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "open_date"
+    t.integer "height"
+    t.datetime "last_renov_date"
+    t.bigint "ag_address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ag_address_id"], name: "index_ag_public_housing_devels_on_ag_address_id"
+  end
+
+  create_table "ag_residents", force: :cascade do |t|
+    t.string "name"
+    t.date "dob"
+    t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ag_states", force: :cascade do |t|
     t.string "name"
-    t.integer "ag_country_id"
     t.string "iso"
+    t.bigint "ag_country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ag_country_id"], name: "index_ag_states_on_ag_country_id"
   end
 
 # Could not dump table "aj_combotype" because of following StandardError
@@ -918,12 +970,33 @@ ActiveRecord::Schema.define(version: 20180513234833) do
     t.decimal "quality", precision: 10
   end
 
+  create_table "yh_holdsales03", id: false, force: :cascade do |t|
+    t.text "parcel_id"
+    t.string "base_id", limit: 7
+    t.decimal "avg_price"
+    t.bigint "scount"
+  end
+
   create_table "yh_lonlat5", id: false, force: :cascade do |t|
     t.string "casenumber", limit: 5
     t.float "longitude"
     t.float "latitude"
     t.string "streetname", limit: 20
     t.decimal "quality", precision: 10
+  end
+
+  create_table "yw_holdsales04", id: false, force: :cascade do |t|
+    t.text "parcel_id"
+    t.string "base_id", limit: 7
+    t.decimal "avg_price"
+    t.bigint "scount"
+  end
+
+  create_table "yw_holdsales4", id: false, force: :cascade do |t|
+    t.text "parcel_id"
+    t.string "base_id", limit: 7
+    t.decimal "avg_price"
+    t.bigint "scount"
   end
 
   create_table "zw_apptype", id: false, force: :cascade do |t|
@@ -1069,6 +1142,16 @@ ActiveRecord::Schema.define(version: 20180513234833) do
     t.string "longitude", limit: 255
   end
 
+  add_foreign_key "ag_addresses", "ag_countries"
+  add_foreign_key "ag_addresses", "ag_states"
+  add_foreign_key "ag_apartments", "ag_public_housing_devels"
+  add_foreign_key "ag_household_apartments", "ag_apartments"
+  add_foreign_key "ag_household_apartments", "ag_households"
+  add_foreign_key "ag_household_apartments", "ag_public_housing_devels", column: "ag_public_housing_devels_id"
+  add_foreign_key "ag_household_members", "ag_households"
+  add_foreign_key "ag_household_members", "ag_residents"
+  add_foreign_key "ag_public_housing_devels", "ag_addresses"
+  add_foreign_key "ag_states", "ag_countries"
   add_foreign_key "ap_match", "ap_household", column: "householdid", primary_key: "householdid", name: "fk_householdid"
   add_foreign_key "ap_match", "ap_unit", column: "unitid", primary_key: "unitid", name: "fk_unitid"
   add_foreign_key "ap_unit", "ap_housing", column: "housingid", primary_key: "housingid", name: "fk_housingid"

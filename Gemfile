@@ -41,3 +41,4 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+gem 'binding_of_caller'

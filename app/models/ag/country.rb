@@ -1,3 +1,3 @@
 class Ag::Country < ApplicationRecord
-  has_many :ag_states, class_name: 'Ag::State'
+  # belongs_to :ag_address, class_name: 'Ag::Address'
 end

@@ -69,6 +69,6 @@ class Ag::StatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ag_state_params
-      params.require(:ag_state).permit(:name, :country_id, :iso)
+      params.require(:ag_state).permit(:name, :ag_country_id, :iso)
     end
 end

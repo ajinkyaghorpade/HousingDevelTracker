@@ -6,6 +6,6 @@ FactoryGirl.define do
     has_kitchen false
     has_living_room false
     sq_footage 1.5
-    pb_housing_devel 1
+    ag_public_housing_devel_id 1
   end
 end
