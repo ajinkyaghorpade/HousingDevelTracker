@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit num:</strong>
+  <%= @ag_apartment.unit_num %>
+</p>
+
+<p>
+  <strong>Num bedrooms:</strong>
+  <%= @ag_apartment.num_bedrooms %>
+</p>
+
+<p>
+  <strong>Num bathrooms:</strong>
+  <%= @ag_apartment.num_bathrooms %>
+</p>
+
+<p>
+  <strong>Has kitchen:</strong>
+  <%= @ag_apartment.has_kitchen %>
+</p>
+
+<p>
+  <strong>Has living room:</strong>
+  <%= @ag_apartment.has_living_room %>
+</p>
+
+<p>
+  <strong>Sq footage:</strong>
+  <%= @ag_apartment.sq_footage %>
+</p>
+
+<p>
+  <strong>Pb housing devel:</strong>
+  <%= @ag_apartment.pb_housing_devel %>
+</p>
+
+<%= link_to 'Edit', edit_ag_apartment_path(@ag_apartment) %> |
+<%= link_to 'Back', ag_apartments_path %>

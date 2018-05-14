@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ag Public Housing Devels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Open date</th>
+      <th>Height</th>
+      <th>Last rennov date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ag_public_housing_devels.each do |ag_public_housing_devel| %>
+      <tr>
+        <td><%= ag_public_housing_devel.name %></td>
+        <td><%= ag_public_housing_devel.address %></td>
+        <td><%= ag_public_housing_devel.open_date %></td>
+        <td><%= ag_public_housing_devel.height %></td>
+        <td><%= ag_public_housing_devel.last_rennov_date %></td>
+        <td><%= link_to 'Show', ag_public_housing_devel %></td>
+        <td><%= link_to 'Edit', edit_ag_public_housing_devel_path(ag_public_housing_devel) %></td>
+        <td><%= link_to 'Destroy', ag_public_housing_devel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ag Public Housing Devel', new_ag_public_housing_devel_path %>

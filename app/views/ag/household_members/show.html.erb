@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Household:</strong>
+  <%= @ag_household_member.household_id %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @ag_household_member.member_id %>
+</p>
+
+<p>
+  <strong>Head:</strong>
+  <%= @ag_household_member.head %>
+</p>
+
+<%= link_to 'Edit', edit_ag_household_member_path(@ag_household_member) %> |
+<%= link_to 'Back', ag_household_members_path %>

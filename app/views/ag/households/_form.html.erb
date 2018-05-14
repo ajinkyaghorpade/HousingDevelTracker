@@ -1,0 +1,27 @@
+<%= form_with(model: ag_household, local: true) do |form| %>
+  <% if ag_household.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ag_household.errors.count, "error") %> prohibited this ag_household from being saved:</h2>
+
+      <ul>
+      <% ag_household.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :owned %>
+    <%= form.check_box :owned, id: :ag_household_owned %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subsidized %>
+    <%= form.check_box :subsidized, id: :ag_household_subsidized %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

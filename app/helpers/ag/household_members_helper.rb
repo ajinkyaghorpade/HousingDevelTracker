@@ -1,0 +1,2 @@
+module Ag::HouseholdMembersHelper
+end

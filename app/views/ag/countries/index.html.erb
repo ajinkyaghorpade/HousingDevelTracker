@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ag Countries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Iso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ag_countries.each do |ag_country| %>
+      <tr>
+        <td><%= ag_country.name %></td>
+        <td><%= ag_country.iso %></td>
+        <td><%= link_to 'Show', ag_country %></td>
+        <td><%= link_to 'Edit', edit_ag_country_path(ag_country) %></td>
+        <td><%= link_to 'Destroy', ag_country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ag Country', new_ag_country_path %>

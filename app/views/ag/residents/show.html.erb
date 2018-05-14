@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ag_resident.name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @ag_resident.dob %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @ag_resident.gender %>
+</p>
+
+<%= link_to 'Edit', edit_ag_resident_path(@ag_resident) %> |
+<%= link_to 'Back', ag_residents_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ag Apartments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unit num</th>
+      <th>Num bedrooms</th>
+      <th>Num bathrooms</th>
+      <th>Has kitchen</th>
+      <th>Has living room</th>
+      <th>Sq footage</th>
+      <th>Pb housing devel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ag_apartments.each do |ag_apartment| %>
+      <tr>
+        <td><%= ag_apartment.unit_num %></td>
+        <td><%= ag_apartment.num_bedrooms %></td>
+        <td><%= ag_apartment.num_bathrooms %></td>
+        <td><%= ag_apartment.has_kitchen %></td>
+        <td><%= ag_apartment.has_living_room %></td>
+        <td><%= ag_apartment.sq_footage %></td>
+        <td><%= ag_apartment.pb_housing_devel %></td>
+        <td><%= link_to 'Show', ag_apartment %></td>
+        <td><%= link_to 'Edit', edit_ag_apartment_path(ag_apartment) %></td>
+        <td><%= link_to 'Destroy', ag_apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ag Apartment', new_ag_apartment_path %>

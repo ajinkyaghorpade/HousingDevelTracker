@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ag_country.name %>
+</p>
+
+<p>
+  <strong>Iso:</strong>
+  <%= @ag_country.iso %>
+</p>
+
+<%= link_to 'Edit', edit_ag_country_path(@ag_country) %> |
+<%= link_to 'Back', ag_countries_path %>

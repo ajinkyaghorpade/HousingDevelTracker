@@ -1,0 +1,2 @@
+module Ag::ResidentsHelper
+end

@@ -1,0 +1,42 @@
+<%= form_with(model: ag_public_housing_devel, local: true) do |form| %>
+  <% if ag_public_housing_devel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ag_public_housing_devel.errors.count, "error") %> prohibited this ag_public_housing_devel from being saved:</h2>
+
+      <ul>
+      <% ag_public_housing_devel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :ag_public_housing_devel_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.number_field :address, id: :ag_public_housing_devel_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open_date %>
+    <%= form.datetime_select :open_date, id: :ag_public_housing_devel_open_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.number_field :height, id: :ag_public_housing_devel_height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_rennov_date %>
+    <%= form.datetime_select :last_rennov_date, id: :ag_public_housing_devel_last_rennov_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

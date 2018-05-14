@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owned:</strong>
+  <%= @ag_household.owned %>
+</p>
+
+<p>
+  <strong>Subsidized:</strong>
+  <%= @ag_household.subsidized %>
+</p>
+
+<%= link_to 'Edit', edit_ag_household_path(@ag_household) %> |
+<%= link_to 'Back', ag_households_path %>

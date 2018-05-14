@@ -1,0 +1,2 @@
+module Ag::AddressesHelper
+end

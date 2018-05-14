@@ -1,0 +1,52 @@
+<%= form_with(model: ag_apartment, local: true) do |form| %>
+  <% if ag_apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ag_apartment.errors.count, "error") %> prohibited this ag_apartment from being saved:</h2>
+
+      <ul>
+      <% ag_apartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :unit_num %>
+    <%= form.number_field :unit_num, id: :ag_apartment_unit_num %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_bedrooms %>
+    <%= form.number_field :num_bedrooms, id: :ag_apartment_num_bedrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_bathrooms %>
+    <%= form.number_field :num_bathrooms, id: :ag_apartment_num_bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :has_kitchen %>
+    <%= form.check_box :has_kitchen, id: :ag_apartment_has_kitchen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :has_living_room %>
+    <%= form.check_box :has_living_room, id: :ag_apartment_has_living_room %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sq_footage %>
+    <%= form.text_field :sq_footage, id: :ag_apartment_sq_footage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pb_housing_devel %>
+    <%= form.number_field :pb_housing_devel, id: :ag_apartment_pb_housing_devel %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

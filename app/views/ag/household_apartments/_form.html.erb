@@ -1,0 +1,42 @@
+<%= form_with(model: ag_household_apartment, local: true) do |form| %>
+  <% if ag_household_apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ag_household_apartment.errors.count, "error") %> prohibited this ag_household_apartment from being saved:</h2>
+
+      <ul>
+      <% ag_household_apartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :moved_id %>
+    <%= form.date_select :moved_id, id: :ag_household_apartment_moved_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :moved_out %>
+    <%= form.date_select :moved_out, id: :ag_household_apartment_moved_out %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :ag_household_apartment_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ag_apartment_id %>
+    <%= form.text_field :ag_apartment_id, id: :ag_household_apartment_apartment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ag_household_id %>
+    <%= form.text_field :ag_household_id, id: :ag_household_apartment_household_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

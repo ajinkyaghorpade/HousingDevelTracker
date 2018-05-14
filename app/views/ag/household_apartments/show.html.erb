@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Moved:</strong>
+  <%= @ag_household_apartment.moved_id %>
+</p>
+
+<p>
+  <strong>Moved out:</strong>
+  <%= @ag_household_apartment.moved_out %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @ag_household_apartment.cost %>
+</p>
+
+<p>
+  <strong>Apartment:</strong>
+  <%= @ag_household_apartment.apartment %>
+</p>
+
+<p>
+  <strong>Household:</strong>
+  <%= @ag_household_apartment.household %>
+</p>
+
+<%= link_to 'Edit', edit_ag_household_apartment_path(@ag_household_apartment) %> |
+<%= link_to 'Back', ag_household_apartments_path %>
