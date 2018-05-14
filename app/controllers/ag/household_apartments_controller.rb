@@ -69,6 +69,6 @@ class Ag::HouseholdApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ag_household_apartment_params
-      params.require(:ag_household_apartment).permit(:moved_in, :moved_out, :cost, :ag_apartment_id, :ag_household_id, :ag_public_housing_devel_id)
+      params.require(:ag_household_apartment).permit(:moved_id, :moved_out, :cost, :ag_apartment_id, :ag_household_id, :ag_public_housing_devels_id)
     end
 end

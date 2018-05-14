@@ -42,3 +42,7 @@ group :test do
   gem 'launchy'
 end
 gem 'binding_of_caller'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.1'
+end

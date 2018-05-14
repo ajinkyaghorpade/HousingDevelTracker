@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :moved_in %>
-    <%= form.date_select :moved_in, id: :ag_household_apartment_moved_in %>
+    <%= form.label :moved_id %>
+    <%= form.date_select :moved_id, id: :ag_household_apartment_moved_in, start_year: (Date.today.year - 100) %>
   </div>
 
   <div class="field">
     <%= form.label :moved_out %>
-    <%= form.date_select :moved_out, id: :ag_household_apartment_moved_out %>
+    <%= form.date_select :moved_out, id: :ag_household_apartment_moved_out, start_year: (Date.today.year - 100) %>
   </div>
 
   <div class="field">
@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :ag_public_housing_devel_id %>
-    <%= form.text_field :ag_public_housing_devel_id, id: :ag_household_apartment_ag_public_housing_devel_id %>
+    <%= form.label :ag_public_housing_devels_id %>
+    <%= form.text_field :ag_public_housing_devels_id, id: :ag_household_apartment_ag_public_housing_devel_id %>
   </div>
 
   <div class="actions">
